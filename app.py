@@ -196,7 +196,7 @@ def get_live_data():
 
 @st.cache_data(ttl=3600)
 def load_backtest_metrics():
-    bt_file = Path("backtest_results.json")
+    bt_file = Path("backtest_results.jsonl")
     if not bt_file.exists(): return None
     preds = []
     with bt_file.open() as f:
@@ -214,7 +214,7 @@ try:
     price_delta = current_price - prev_price
     pct_delta = (price_delta / prev_price) * 100
     current_ts = int(timestamps[-1])
-    next_bar_ts = current_ts + 60 * 1000  # 1 MINUTE PREDICTIONS NOW FOR LIVE ACTION
+    next_bar_ts = current_ts + 3600 * 1000  # 1 HOUR PREDICTION NOW
     
     # 24H stats (roughly 1440 mins = 24H, but limit is 520, so using total range available)
     day_closes = float(closes[-500]) if len(closes) > 500 else float(closes[0])
@@ -557,7 +557,7 @@ with col_chart:
             } for r in sorted(settled, key=lambda x: x["current_bar_open_time"], reverse=True)])
             st.dataframe(df_hist, use_container_width=True, hide_index=True)
         else:
-            st.info("Awaiting next 1m close to resolve oracle logic bounds.")
+            st.info("Awaiting next 1h close to resolve oracle logic bounds.")
 
     with t_val:
         bt_metrics = load_backtest_metrics()

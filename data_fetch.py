@@ -13,11 +13,11 @@ BASE = "https://data-api.binance.vision/api/v3/klines"
 
 def fetch_klines(
     symbol: str = "BTCUSDT",
-    interval: str = "1m",
+    interval: str = "1h",
     limit: int = 500,
 ) -> List[dict]:
     """
-    Fetch the last `limit` closed 1-minute candles.
+    Fetch the last `limit` closed 1-hour candles.
     Returns list of dicts with keys: open_time, open, high, low, close, volume, close_time
     """
     params = {

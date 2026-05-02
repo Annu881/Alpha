@@ -8,7 +8,7 @@ For each bar i in [warm_up, N-1):
 NO peeking: the slice passed to fit_and_predict never includes bar i+1.
 
 Outputs:
-  - backtest_results.json  (one JSON line per prediction)
+  - backtest_results.jsonl  (one JSON line per prediction)
   - prints coverage, avg_width, mean_winkler
 """
 
@@ -61,7 +61,7 @@ def evaluate(predictions: list) -> dict:
 def run_backtest(
     warm_up: int = 50,       # minimum bars needed before first prediction
     vol_window: int = 24,
-    output_path: str = "backtest_results.json",
+    output_path: str = "backtest_results.jsonl",
     verbose: bool = True,
 ) -> dict:
     if verbose:
