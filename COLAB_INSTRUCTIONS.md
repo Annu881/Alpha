@@ -62,7 +62,7 @@
 Coverage (target 0.95):  0.9412
 Average width ($):       823.45
 Mean Winkler score:      1204.32
-Results saved → backtest_results.jsonl
+Results saved → backtest_results.json
 ```
 ⚠️ This may take **2–3 minutes**, please wait!
 

@@ -196,7 +196,7 @@ def get_live_data():
 
 @st.cache_data(ttl=3600)
 def load_backtest_metrics():
-    bt_file = Path("backtest_results.jsonl")
+    bt_file = Path("backtest_results.json")
     if not bt_file.exists(): return None
     preds = []
     with bt_file.open() as f:

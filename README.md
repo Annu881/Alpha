@@ -13,7 +13,7 @@
 |------|---------|
 | `model.py` | GBM + Student-t(df=4) Monte Carlo forecaster |
 | `data_fetch.py` | Binance geo-unblocked data fetcher |
-| `backtest.py` | Walk-forward backtest → `backtest_results.jsonl` |
+| `backtest.py` | Walk-forward backtest → `backtest_results.json` |
 | `app.py` | Streamlit live dashboard (Part B + C) |
 | `colab_notebook.py` | Self-contained Colab-ready script |
 | `requirements.txt` | Python dependencies |
@@ -28,7 +28,7 @@ python backtest.py
 ```
 
 This fetches 30 days of BTCUSDT 1h bars and runs a strict walk-forward backtest.
-Outputs `backtest_results.jsonl` + prints:
+Outputs `backtest_results.json` + prints:
 - `coverage_95` — should be ~0.95
 - `avg_width` — average range width in USD
 - `mean_winkler_95` — lower is better
@@ -97,7 +97,7 @@ No API key or account required.
 
 ## Submission Checklist
 
-- [x] Part A: `backtest_results.jsonl` with 700+ predictions
+- [x] Part A: `backtest_results.json` with 700+ predictions
 - [x] Part A: `coverage_95`, `avg_width`, `mean_winkler_95` computed
 - [x] Part B: Live dashboard with current price, 95% CI, 50-bar chart, backtest metrics
 - [x] Part C: Prediction persistence — every visit saved, actuals back-filled
