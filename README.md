@@ -1,5 +1,9 @@
-# BTC/USDT 1H GBM Forecast
+# 🔶 Binance Oracle — BTC/USDT Live Trading Terminal
 ### AlphaI × Polaris Challenge Submission
+
+![Binance Oracle Dashboard](screenshots/dashboard.png)
+
+> **Live BTCUSDT Perpetual trading terminal** with GBM forecasting, real-time Oracle confidence bands, full paper trading engine (Limit / Market / Stop Limit), and live P&L tracking.
 
 ---
 
