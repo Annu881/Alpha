@@ -81,15 +81,24 @@ streamlit run app.py
 
 ---
 
-## Step 3 — Deploy to Streamlit Community Cloud (free, public URL)
+## 🌐 Live Deployment
+
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://yew6j5wbmfsfdvt3nd3f8m.streamlit.app)
+
+The complete application is already deployed and live on Streamlit Community Cloud. Click the badge above or use the direct link:  
+**🔗 [https://yew6j5wbmfsfdvt3nd3f8m.streamlit.app](https://yew6j5wbmfsfdvt3nd3f8m.streamlit.app)**
+
+<details>
+<summary>⚡ <b>How to deploy your own instance</b></summary>
+<br>
 
 1. Push this folder to a **public GitHub repo**
 2. Go to [share.streamlit.io](https://share.streamlit.io)
 3. Connect your GitHub, select the repo, set `app.py` as the entry point
 4. Click Deploy — you get a public URL in ~2 minutes
-5. Paste that URL in the submission form
 
-> The app "sleeps" after inactivity and wakes in ~30s on first visit — this is fine for grading.
+> *Note: Community Cloud apps "sleep" after inactivity and wake in ~30s on first visit — this is perfectly fine for grading purposes.*
+</details>
 
 ---
 
