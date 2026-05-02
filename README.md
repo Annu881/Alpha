@@ -7,6 +7,42 @@
 
 ## What's Inside
 
+```mermaid
+flowchart TD
+    %% Define Styles
+    classDef api fill:#fcd535,stroke:#000,stroke-width:1px,color:#000,font-weight:bold
+    classDef model fill:#0b0e11,stroke:#fcd535,stroke-width:2px,color:#fff,font-weight:bold
+    classDef ui fill:#212529,stroke:#fcd535,stroke-width:1px,color:#fff,font-weight:bold
+    classDef db fill:#3b3f46,stroke:#fff,stroke-width:1px,color:#fff,font-style:italic
+
+    %% Architecture Nodes
+    A[Binance Public API\n1-Hour BTCUSDT Kline Data]:::api
+    B(Data Fetcher Pipeline\ndata_fetch.py):::model
+    
+    subgraph Forecasting Engine
+        C{GBM & Volatility Model\nmodel.py\nStudent-t df=4}:::model
+        D[/10,000 Monte Carlo\nSimulated Paths\]:::model
+        E[95% Confidence Bounds\nUpper & Lower Targets]:::model
+    end
+
+    subgraph User Interface [Streamlit Terminal View]
+        F[Paper Trading Engine\nSession State Ledger]:::ui
+        G((Live Dashboard\napp.py)):::ui
+    end
+
+    H[(JSONL Storage\npersistent actuals\nbacktest_results)]:::db
+
+    %% Relationships
+    A -- REST API --> B
+    B --> C
+    B -- Historical Data --> H
+    C --> D
+    D --> E
+    E -- Dynamic Oracle Spreads --> G
+    F -- Executes Limit/Market --> G
+    C -. Model Validates .- H
+```
+
 | File | Purpose |
 |------|---------|
 | `model.py` | GBM + Student-t(df=4) Monte Carlo forecaster |
